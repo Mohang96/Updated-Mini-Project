@@ -1,0 +1,84 @@
+.website-footer-background {
+  margin-top: 20px;
+  background-color: #0f172a;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'DM Sans';
+  color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .website-footer-background {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+.footer-logo-and-title-container {
+  display: flex;
+  align-items: center;
+}
+
+.website-footer-logo {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.footer-title {
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 48px;
+  text-align: left;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-title {
+    font-size: 32px;
+  }
+}
+
+.website-footer-msg {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .website-footer-msg {
+    font-size: 18px;
+  }
+}
+
+.footer-social-icons-list {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.footer-social-icon {
+  font-size: 30px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-social-icon {
+    font-size: 40px;
+  }
+}
+
+/* .p-interest-icon:hover {
+  background-color: white;
+  color: #e60023;
+  transition: all 1s ease-in-out;
+}
+
+.instagram-icon:hover {
+  color: #e4405f;
+} */

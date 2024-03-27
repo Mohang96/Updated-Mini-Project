@@ -1,0 +1,136 @@
+.specific-restaurant-page-background {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading-view-background {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-view-background {
+  flex-grow: 1;
+}
+
+.restaurant-image-and-details-background {
+  background-image: url('https://res.cloudinary.com/dvppnhb4r/image/upload/v1711452763/specific-restaurant-image-background_wzte4s.png');
+  height: 25vh;
+  background-size: cover;
+}
+
+@media screen and (min-width: 768px) {
+  .restaurant-image-and-details-background {
+    height: 35vh;
+  }
+}
+
+.tablet-view-restaurant-image-and-details-responsive-background {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .tablet-view-restaurant-image-and-details-responsive-background {
+    width: 90%;
+    margin: auto;
+  }
+}
+
+.restaurant-image-background {
+  width: 45%;
+  height: 100%;
+  /* overflow-y: hidden; */
+}
+
+.specific-restaurant-image {
+  width: 60%;
+  height: 60%;
+  /* top: -25px;
+  left: -50px;
+  gap: 0px;
+  border-radius: 133.98px; */
+}
+
+.restaurant-details-background {
+  width: 50%;
+  color: #ffffff;
+  margin-right: 20px;
+  font-family: 'Roboto';
+}
+
+.restaurant-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .restaurant-name {
+    font-size: 16px;
+  }
+}
+
+.restaurant-type {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+@media screen and (min-width: 768px) {
+  .restaurant-type {
+    font-size: 14px;
+  }
+}
+
+.restaurant-location {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+@media screen and (min-width: 768px) {
+  .restaurant-location {
+    font-size: 14px;
+  }
+}
+
+.rating-and-cost-container {
+  display: flex;
+  align-items: center;
+}
+
+.rating-cost-common-container {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.rating {
+  font-size: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.reviews-count {
+  font-size: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.cost {
+  font-size: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.cost-for-two {
+  font-size: 8px;
+  margin: 0;
+  padding: 0;
+}
