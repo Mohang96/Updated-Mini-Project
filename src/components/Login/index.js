@@ -125,7 +125,7 @@ class Login extends Component {
                     src="https://res.cloudinary.com/dvppnhb4r/image/upload/v1707927996/tablet-login-tasty-kitchens-image_vmylms.png"
                     alt="website logo"
                   />
-                  <p className="tablet-login-view-title">Tasty Kitchens</p>
+                  <h1 className="tablet-login-view-title">Tasty Kitchens</h1>
                 </div>
                 <h1 className="login-text">Login</h1>
                 {this.renderUsernameField()}

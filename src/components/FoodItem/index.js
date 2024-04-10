@@ -4,8 +4,6 @@ import {BiRupee} from 'react-icons/bi'
 
 import './index.css'
 
-let cartData = null
-
 class FoodItem extends Component {
   state = {showAddBtn: true, quantity: 0}
 
@@ -23,7 +21,7 @@ class FoodItem extends Component {
     const {itemDetails} = this.props
     const {name, cost, imageUrl, id} = itemDetails
     const {quantity} = this.state
-    cartData =
+    const cartData =
       JSON.parse(localStorage.getItem('cartData')) === null
         ? []
         : JSON.parse(localStorage.getItem('cartData'))
@@ -34,19 +32,44 @@ class FoodItem extends Component {
       imageUrl,
       name,
     }
-    const updatedCartData = [...cartData, cartItem]
-    localStorage.setItem('cartData', JSON.stringify(updatedCartData))
+    const cartItemIndex = cartData.findIndex(
+      eachCartItem => id === eachCartItem.id,
+    )
+    if (cartItemIndex < 0) {
+      const updatedCartData = [...cartData, cartItem]
+      localStorage.setItem('cartData', JSON.stringify(updatedCartData))
+    } else {
+      const updatedCartData = cartData.map(eachCartItem => {
+        if (eachCartItem.id === id) {
+          const updatedCartItem = {
+            ...eachCartItem,
+            quantity: eachCartItem.quantity + 1,
+          }
+          return updatedCartItem
+        }
+        return eachCartItem
+      })
+      localStorage.setItem('cartData', JSON.stringify(updatedCartData))
+    }
   }
 
   renderButtons = () => {
     const {quantity} = this.state
     return (
       <>
-        <button type="button" onClick={this.onClickDecreaseQuantity}>
+        <button
+          type="button"
+          onClick={this.onClickDecreaseQuantity}
+          className="btn quantity-handle-btn"
+        >
           -
         </button>
-        <span>{quantity}</span>
-        <button type="button" onClick={this.onClickIncreaseQuantity}>
+        <span className="quantity">{quantity}</span>
+        <button
+          type="button"
+          onClick={this.onClickIncreaseQuantity}
+          className="btn quantity-handle-btn"
+        >
           +
         </button>
       </>
@@ -56,7 +79,10 @@ class FoodItem extends Component {
   onClickDecreaseQuantity = () => {
     const {quantity} = this.state
     if (quantity > 1) {
-      this.setState(prevState => ({quantity: prevState.quantity - 1}))
+      this.setState(
+        prevState => ({quantity: prevState.quantity - 1}),
+        this.decreaseCurrentCartItemQuantity,
+      )
     }
     if (quantity === 1) {
       this.setState(
@@ -69,10 +95,55 @@ class FoodItem extends Component {
     }
   }
 
-  removeCurrentCartItem = () => {}
+  decreaseCurrentCartItemQuantity = () => {
+    const {itemDetails} = this.props
+    const {id} = itemDetails
+    const cartData = JSON.parse(localStorage.getItem('cartData'))
+    const updatedCartData = cartData.map(eachCartItem => {
+      if (eachCartItem.id === id) {
+        const updatedCartItem = {
+          ...eachCartItem,
+          quantity: eachCartItem.quantity - 1,
+        }
+        return updatedCartItem
+      }
+      return eachCartItem
+    })
+    localStorage.setItem('cartData', JSON.stringify(updatedCartData))
+  }
+
+  removeCurrentCartItem = () => {
+    const {itemDetails} = this.props
+    const {id} = itemDetails
+    const cartData = JSON.parse(localStorage.getItem('cartData'))
+    const updatedCartData = cartData.filter(
+      eachCartItem => eachCartItem.id !== id,
+    )
+    localStorage.setItem('cartData', JSON.stringify(updatedCartData))
+  }
 
   onClickIncreaseQuantity = () => {
-    this.setState(prevState => ({quantity: prevState.quantity + 1}))
+    this.setState(
+      prevState => ({quantity: prevState.quantity + 1}),
+      this.increaseCurrentCartItemQuantity,
+    )
+  }
+
+  increaseCurrentCartItemQuantity = () => {
+    const {itemDetails} = this.props
+    const {id} = itemDetails
+    const cartData = JSON.parse(localStorage.getItem('cartData'))
+    const updatedCartData = cartData.map(eachCartItem => {
+      if (eachCartItem.id === id) {
+        const updatedCartItem = {
+          ...eachCartItem,
+          quantity: eachCartItem.quantity + 1,
+        }
+        return updatedCartItem
+      }
+      return eachCartItem
+    })
+    localStorage.setItem('cartData', JSON.stringify(updatedCartData))
   }
 
   render() {
@@ -100,8 +171,12 @@ class FoodItem extends Component {
             </p>
           </span>
           {showAddBtn && (
-            <button type="button" onClick={this.onClickAddBtn}>
-              Add
+            <button
+              type="button"
+              onClick={this.onClickAddBtn}
+              className="btn add-btn"
+            >
+              ADD
             </button>
           )}
           {!showAddBtn && (

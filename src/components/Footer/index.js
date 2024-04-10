@@ -23,16 +23,28 @@ const Footer = () => (
     </p>
     <ul className="footer-social-icons-list">
       <li>
-        <FaPinterestSquare className="footer-social-icon p-interest-icon" />
+        <FaPinterestSquare
+          className="footer-social-icon p-interest-icon"
+          testid="pintrest-social-icon"
+        />
       </li>
       <li>
-        <FaInstagram className="footer-social-icon instagram-icon" />
+        <FaInstagram
+          className="footer-social-icon instagram-icon"
+          testid="instagram-social-icon"
+        />
       </li>
       <li>
-        <FaTwitter className="footer-social-icon twitter-icon" />
+        <FaTwitter
+          className="footer-social-icon twitter-icon"
+          testid="twitter-social-icon"
+        />
       </li>
       <li>
-        <FaFacebookSquare className="footer-social-icon facebook-icon" />
+        <FaFacebookSquare
+          className="footer-social-icon facebook-icon"
+          testid="facebook-social-icon"
+        />
       </li>
     </ul>
   </div>
