@@ -6,6 +6,7 @@ import {FaStar} from 'react-icons/fa'
 import {BiRupee} from 'react-icons/bi'
 
 import Header from '../Header'
+import FoodItem from '../FoodItem'
 import Footer from '../Footer'
 
 import './index.css'
@@ -102,6 +103,7 @@ class RestaurantDetails extends Component {
   renderSuccessView = () => (
     <div className="success-view-background">
       {this.renderRestaurantDetails()}
+      {this.renderRestaurantMenuDetails()}
     </div>
   )
 
@@ -119,7 +121,7 @@ class RestaurantDetails extends Component {
 
     return (
       <div className="restaurant-image-and-details-background">
-        <div className="tablet-view-restaurant-image-and-details-responsive-background">
+        <div className="restaurant-image-and-details-responsive-background">
           <div className="restaurant-image-background">
             <img
               src={imageUrl}
@@ -127,29 +129,45 @@ class RestaurantDetails extends Component {
               className="specific-restaurant-image"
             />
           </div>
-          <div className="restaurant-details-background">
-            <h1 className="restaurant-name">{name}</h1>
-            <p className="restaurant-type">{cuisine}</p>
+          <div className="specific-restaurant-details-background">
+            <h1 className="specific-restaurant-name">{name}</h1>
+            <p className="specific-restaurant-type">{cuisine}</p>
             <p className="restaurant-location">{location}</p>
             <div className="rating-and-cost-container">
               <div className="rating-container">
                 <div className="rating-cost-common-container">
-                  <FaStar />
-                  <h1 className="rating">{rating}</h1>
+                  <FaStar className="rating-star-and-rupee-icon" />
+                  <h1 className="rating-and-cost">{rating}</h1>
                 </div>
-                <span className="reviews-count">{`${reviewsCount}+ Ratings`}</span>
+                <span className="reviews-count-and-cost-for-two">{`${reviewsCount}+ Ratings`}</span>
               </div>
-              <hr />
-              <div className="cost-container">
+              <hr className="vertical-line" />
+              <div className="rating-container">
                 <div className="rating-cost-common-container">
-                  <BiRupee />
-                  <h1 className="cost">{costForTwo}</h1>
+                  <BiRupee className="rating-star-and-rupee-icon" />
+                  <h1 className="rating-and-cost">{costForTwo}</h1>
                 </div>
-                <span className="cost-for-two">Cost For Two</span>
+                <span className="reviews-count-and-cost-for-two">
+                  Cost For Two
+                </span>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    )
+  }
+
+  renderRestaurantMenuDetails = () => {
+    const {foodItemsList} = this.state
+
+    return (
+      <div className="restaurant-food-items-list-background">
+        <ul className="restaurant-food-items-list">
+          {foodItemsList.map(eachItem => (
+            <FoodItem key={eachItem.id} itemDetails={eachItem} />
+          ))}
+        </ul>
       </div>
     )
   }

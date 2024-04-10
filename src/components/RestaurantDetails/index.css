@@ -18,7 +18,8 @@
 
 .restaurant-image-and-details-background {
   background-image: url('https://res.cloudinary.com/dvppnhb4r/image/upload/v1711452763/specific-restaurant-image-background_wzte4s.png');
-  height: 25vh;
+  height: 30vh;
+  padding-bottom: 10px;
   background-size: cover;
 }
 
@@ -28,62 +29,82 @@
   }
 }
 
-.tablet-view-restaurant-image-and-details-responsive-background {
+.restaurant-image-and-details-responsive-background {
   height: 100%;
   width: 100%;
+  overflow-y: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 @media screen and (min-width: 768px) {
-  .tablet-view-restaurant-image-and-details-responsive-background {
+  .restaurant-image-and-details-responsive-background {
     width: 90%;
     margin: auto;
+    justify-content: start;
   }
 }
 
 .restaurant-image-background {
   width: 45%;
   height: 100%;
-  /* overflow-y: hidden; */
+  margin-top: -30px;
+  margin-left: -30px;
+}
+
+@media screen and (min-width: 768px) {
+  .restaurant-image-background {
+    width: 30%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-right: 20px;
+    margin-top: 0;
+    margin-left: 0;
+  }
 }
 
 .specific-restaurant-image {
-  width: 60%;
-  height: 60%;
-  /* top: -25px;
-  left: -50px;
-  gap: 0px;
-  border-radius: 133.98px; */
+  width: 100%;
+  height: 100%;
+  border-radius: 133.98px;
 }
 
-.restaurant-details-background {
+@media screen and (min-width: 768px) {
+  .specific-restaurant-image {
+    border-radius: 8px;
+  }
+}
+
+.specific-restaurant-details-background {
   width: 50%;
   color: #ffffff;
   margin-right: 20px;
   font-family: 'Roboto';
 }
 
-.restaurant-name {
+.specific-restaurant-name {
   font-size: 12px;
   font-weight: 500;
   color: #ffffff;
 }
 
 @media screen and (min-width: 768px) {
-  .restaurant-name {
+  .specific-restaurant-name {
     font-size: 16px;
   }
 }
 
-.restaurant-type {
+.specific-restaurant-type {
   font-size: 10px;
   font-weight: 400;
 }
 
 @media screen and (min-width: 768px) {
-  .restaurant-type {
+  .specific-restaurant-type {
     font-size: 14px;
   }
 }
@@ -104,33 +125,78 @@
   align-items: center;
 }
 
+.rating-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .rating-cost-common-container {
   display: flex;
   align-items: center;
+  margin-right: auto;
+}
+
+.rating-star-and-rupee-icon {
+  font-size: 10px;
+  margin-right: 4px;
+}
+
+@media screen and (min-width: 768px) {
+  .rating-star-and-rupee-icon {
+    font-size: 12px;
+  }
+}
+
+.rating-and-cost {
+  font-size: 10px;
+  color: #ffffff;
   margin: 0;
   padding: 0;
 }
 
-.rating {
+@media screen and (min-width: 768px) {
+  .rating-and-cost {
+    font-size: 12px;
+  }
+}
+
+.reviews-count-and-cost-for-two {
   font-size: 8px;
   margin: 0;
   padding: 0;
 }
 
-.reviews-count {
-  font-size: 8px;
-  margin: 0;
-  padding: 0;
+@media screen and (min-width: 768px) {
+  .reviews-count-and-cost-for-two {
+    font-size: 10px;
+  }
 }
 
-.cost {
-  font-size: 8px;
+.vertical-line {
+  border: 1px solid white;
+  height: 24px;
   margin: 0;
-  padding: 0;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
-.cost-for-two {
-  font-size: 8px;
-  margin: 0;
+.restaurant-food-items-list-background {
+  width: 90%;
+  margin: auto;
+}
+
+.restaurant-food-items-list {
   padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .restaurant-food-items-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
