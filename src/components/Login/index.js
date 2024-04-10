@@ -97,10 +97,10 @@ class Login extends Component {
   render() {
     const {showLoginError, loginErrMsg, loginLoading} = this.state
 
-    // const jwtToken = Cookies.get('jwt_token')
-    // if (jwtToken !== undefined) {
-    //   return <Redirect to="/" />
-    // }
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken !== undefined) {
+      return <Redirect to="/" />
+    }
 
     return (
       <div className="login-background">
